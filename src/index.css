@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-cybera-black text-cybera-light;
+}
+
+.cybera-gradient {
+  @apply bg-gradient-to-r from-cybera-purple to-cybera-darkPurple;
+}
+
+.cybera-card {
+  @apply bg-cybera-gray border border-cybera-purple/30 rounded-lg p-6 shadow-lg hover:shadow-cybera-purple/20 transition-all duration-300;
+}
+
+.cybera-button {
+  @apply cybera-gradient px-6 py-2 rounded-md font-semibold text-white shadow-md hover:shadow-cybera-purple/50 transition-all duration-300;
+}
+
+.cybera-input {
+  @apply bg-cybera-gray border border-cybera-purple/30 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cybera-purple/50;
+}
+
+.nav-link {
+  @apply relative px-3 py-2 text-cybera-light hover:text-cybera-purple transition-colors duration-300;
+}
+
+.nav-link::after {
+  @apply content-[''] absolute left-0 bottom-0 w-0 h-0.5 cybera-gradient transition-all duration-300;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.nav-link.active {
+  @apply text-cybera-purple;
+}
+
+.nav-link.active::after {
+  @apply w-full;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInFromBottom {
+  from { 
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes glowPulse {
+  0% { text-shadow: 0 0 5px rgba(138, 43, 226, 0.3); }
+  50% { text-shadow: 0 0 20px rgba(138, 43, 226, 0.7), 0 0 30px rgba(138, 43, 226, 0.5); }
+  100% { text-shadow: 0 0 5px rgba(138, 43, 226, 0.3); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.animated-title {
+  animation: fadeIn 1s ease-out, slideInFromBottom 1s ease-out, glowPulse 3s infinite;
+}
+
+.animated-title span {
+  display: inline-block;
+  background-size: 200% 200%;
+  background-image: linear-gradient(90deg, #ffffff, #ffffff, #8A2BE2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientShift 3s ease infinite;
+}
+
+.animated-char {
+  display: inline-block;
+  animation: fadeIn 0.5s both;
+}
